@@ -40,7 +40,7 @@ def Analyze_Sequences_Lengths(records_dict, output_file_path=None):
 
     # Write the data to the file if a file path is assigned else returns the sorted dictionary...
     if output_file_path:
-        with open(output_file_path, 'a+') as outfile:
+        with open(output_file_path, 'w') as outfile:
             outfile.write(f"There are {number_of_records} records in the file\n")
             outfile.write(f'{"*"*20}The records sroted based on their sequence length{"*"*20}\n')
             for key, value in sorted_lengths_dict.items():
@@ -174,3 +174,17 @@ def Find_Repeats(repeat_len, sequence, threshold=1):
 
     return repeat_counts
 
+
+def Concatenate_Repeat_Dicts(repeat_dicts):
+    repeats_concatenated = {}
+
+    for _, repeat_dict in repeat_dicts.items():
+        for repeat, count in repeat_dict.items():
+            if repeats_concatenated.get(repeat, None):
+                repeats_concatenated[repeat] += count
+            else:
+                repeats_concatenated[repeat] = count 
+    
+    sorted_repeats_concatenated = dict(sorted(repeats_concatenated.items(), key= lambda x:x[1]))
+
+    return sorted_repeats_concatenated

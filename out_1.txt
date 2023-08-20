@@ -1,0 +1,27 @@
+There are 25 records in the file
+********************The records sroted based on their sequence length********************
+gi|142022655|gb|EQ086233.1|521 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 512
+gi|142022655|gb|EQ086233.1|378 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 555
+gi|142022655|gb|EQ086233.1|455 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 691
+gi|142022655|gb|EQ086233.1|160 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 724
+gi|142022655|gb|EQ086233.1|43 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 990
+gi|142022655|gb|EQ086233.1|279 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1189
+gi|142022655|gb|EQ086233.1|245 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1325
+gi|142022655|gb|EQ086233.1|210 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1451
+gi|142022655|gb|EQ086233.1|158 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1608
+gi|142022655|gb|EQ086233.1|564 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1663
+gi|142022655|gb|EQ086233.1|350 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1712
+gi|142022655|gb|EQ086233.1|422 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1801
+gi|142022655|gb|EQ086233.1|319 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 1810
+gi|142022655|gb|EQ086233.1|507 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 2124
+gi|142022655|gb|EQ086233.1|101 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 2449
+gi|142022655|gb|EQ086233.1|280 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 2478
+gi|142022655|gb|EQ086233.1|221 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 2863
+gi|142022655|gb|EQ086233.1|229 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3072
+gi|142022655|gb|EQ086233.1|41 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3080
+gi|142022655|gb|EQ086233.1|237 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3276
+gi|142022655|gb|EQ086233.1|438 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3424
+gi|142022655|gb|EQ086233.1|384 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3603
+gi|142022655|gb|EQ086233.1|294 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 3832
+gi|142022655|gb|EQ086233.1|59 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 4745
+gi|142022655|gb|EQ086233.1|323 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold: 4805

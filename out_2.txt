@@ -1,0 +1,51 @@
+********************Answers to the third question********************
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|521 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 0 HAS A LENGTH OF 0
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|455 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 152 HAS A LENGTH OF 195
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|221 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 91 HAS A LENGTH OF 429
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|158 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 117 HAS A LENGTH OF 501
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|378 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 1 HAS A LENGTH OF 534
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|245 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 238 HAS A LENGTH OF 549
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|160 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 106 HAS A LENGTH OF 573
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|564 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 9 HAS A LENGTH OF 630
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|422 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 215 HAS A LENGTH OF 639
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|210 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 359 HAS A LENGTH OF 675
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|279 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 271 HAS A LENGTH OF 699
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|43 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 72 HAS A LENGTH OF 747
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|41 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 558 HAS A LENGTH OF 1002
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|350 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 476 HAS A LENGTH OF 1032
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|319 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 65 HAS A LENGTH OF 1038
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|237 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 191 HAS A LENGTH OF 1302
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|438 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 137 HAS A LENGTH OF 1353
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|280 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 88 HAS A LENGTH OF 1638
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|101 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 25 HAS A LENGTH OF 1791
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|507 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 22 HAS A LENGTH OF 1992
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|59 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 971 HAS A LENGTH OF 2373
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|294 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 140 HAS A LENGTH OF 2418
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|229 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 124 HAS A LENGTH OF 2580
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|384 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 11 HAS A LENGTH OF 2610
+#####For the record with the identifier: gi|142022655|gb|EQ086233.1|323 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold#####
+		The ORF starting at position of 64 HAS A LENGTH OF 4491
