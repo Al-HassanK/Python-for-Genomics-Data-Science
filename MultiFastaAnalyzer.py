@@ -23,168 +23,117 @@ def File_Parser(file_path):
 
     return records
 
+### Pre-conditions: takes a path to a Fasta file with multiple records...
+### Post-conditions: Returns the number of the records in that file...
+def Get_Number_Of_Records(file_path):
+    return len(File_Parser(file_path))
 
-### Pre-conditions: takes the records dectionary returned from the File_Parser function and a file path it will write results to...
-### Post-conditions: writes the following: how many records in the file, the lengths of the sequences, 
-# and the longest and shortest sequences else a sorted dictionary based on sequence length will be returned...
-def Analyze_Sequences_Lengths(records_dict, output_file_path=None):
-    number_of_records = len(records_dict)
-    lengths_dict = {}
-
-    # Get the lengths of the sequences...
-    for key, value in records_dict.items():
-        lengths_dict[key] = len(value)
+### Pre-conditions: takes a path to a Fasta file with multiple records...
+### Post-conditions: Returns a dictionary contains each sequence identifier and its length...
+def Get_Lengths_Of_Sequences(file_path):
+    records = File_Parser(file_path)
+    sequence_length_dict = {identifier:len(sequence) for identifier, sequence in records.items()}
     
-    # Sort the dictionary based on the sequence length...
-    sorted_lengths_dict = dict(sorted(lengths_dict.items(), key=lambda x:x[1]))
+    return sequence_length_dict
 
-    # Write the data to the file if a file path is assigned else returns the sorted dictionary...
-    if output_file_path:
-        with open(output_file_path, 'w') as outfile:
-            outfile.write(f"There are {number_of_records} records in the file\n")
-            outfile.write(f'{"*"*20}The records sroted based on their sequence length{"*"*20}\n')
-            for key, value in sorted_lengths_dict.items():
-                outfile.write(f"{key}: {value}\n")
+### Pre-conditions: takes a path to a Fasta file with multiple records...
+### Post-conditions: Returns a tuple consists of two elements the first is a list contains all identifiers with the longest sequence,
+# and the second element is the length of the longest sequence...
+def Find_Longest_Sequences(file_path):
+    sequence_length_dict = Get_Lengths_Of_Sequences(file_path)
+    records = File_Parser(file_path)
 
-    else:
-        return sorted_lengths_dict
+    longest_sequence_length = max(sequence_length_dict.values())
+    longest_sequences_identifiers = []
 
-### Pre-conditions: takes a DNA sequence and the start position of the wanted reading frame...
-### Post-conditions: returns a reading frame in a list...
-def Generate_Reading_Frame(sequence, start_position):
-    reading_frame = []
-    if start_position != 0:
-        reading_frame = [sequence[:start_position]]
-    
-    # Generate the triplets
-    for i in range(start_position, len(sequence), 3):
-        reading_frame.append(sequence[i:i+3])
-    
-    return reading_frame
-    
-### Pre-conditions: takes a DNA sequence...
-### Post-conditions: a dictionary of the three reading frames...
-def Get_Reading_Frames(sequence):
-    reading_frames = {}
+    for identifer, sequence in records.items():
+        if len(sequence) == longest_sequence_length:
+            longest_sequences_identifiers.append(identifer)
 
-    # Fill the dictionary with the three reading frames...
-    for i in range(3):
-        reading_frames[i+1] = Generate_Reading_Frame(sequence, i)
-    
-    return reading_frames
-
-### Pre-conditions: takes a reading frame...
-### Post-conditions: returns true if it has stop and start codons false other wise...
-def Check_Boundary_Codons(reading_frame):
-    # Check whether the sequence has start codon...
-    first_condition = "ATG" in reading_frame or "atg" in reading_frame
-    # Check whether the sequence has stop codon...
-    second_condition = False
-    for stop_codon in ["TAA", "TAG", "TGA"]:
-        if stop_codon in reading_frame or stop_codon.lower() in reading_frame:
-            second_condition = True
-            break
-    
-    # an ORF is only determined if it has a start and a stop codon...
-    if first_condition and second_condition:
-        return True
-    else:
-        return False
-
-def Get_Start_Codon_Position(reading_frame):
-    try:
-        pos = reading_frame.index("ATG")
-    except ValueError:
-        pos = reading_frame.index("atg")
-    
-    return pos
-
-def Get_Stop_Codon_Position(reading_frame):
-    positions = []
-    for stop_codon in ["TAA", "TAG", "TGA"]:
-        if stop_codon in reading_frame or stop_codon.lower() in reading_frame:
-            try:
-                pos = reading_frame.index(stop_codon)
-                positions.append(pos)
-            except ValueError:
-                pos = reading_frame.index(stop_codon.lower())
-                positions.append(pos)
-    
-    return positions
-
-### Pre-conditions: takes a DNA sequence...
-### Post-conditions: returns its ORF, returns None if there is no ORF...
-def Get_ORF(sequence):
-    reading_frames = Get_Reading_Frames(sequence)
-    orfs = []
-    for _, value in reading_frames.items():
-        if Check_Boundary_Codons(value):
-            start_codon_pos = Get_Start_Codon_Position(value)
-            stop_codon_positions = Get_Stop_Codon_Position(value)
-            for pos in stop_codon_positions:
-                orfs.append(''.join(value[start_codon_pos:pos+1]))
-
-    return orfs
-
-### Pre-conditions: takes the records dectionary returned from the File_Parser function...
-### Post-conditions: returns a dictionary contains the same keys but the values are the all possible ORF for each sequence...
-def Get_ORF_Dictionary(fasta_records):
-    orf_dict = {}
-
-    for key, value in fasta_records.items():
-        orf_dict[key] = Get_ORF(value)
-    
-    return orf_dict
-
-### Pre-conditions: takes the list containing group of orfs of a sequence...
-### Post-conditions: returns a list containing pairs of the longest sequences and their length...
-def Find_The_Longest_ORF(orf_list):
-    max_len = sorted([len(orf) for orf in orf_list])[-1] # the maximum length between all the orfs...
-
-    # Get the orfs equal to the maximum length 
-    longest_orfs = []
-    for orf in orf_list:
-        if len(orf) == max_len:
-            longest_orfs.append((orf, len(orf)))
-            max_len = len(orf)
-    
-    return longest_orfs
-
-### Pre-conditions: takes the orf dectionary returned from the Get_ORF_Dictionary function...
-### Post-conditions: returns the longest orf of all the sequences...
-def Get_Longest_ORF(orf_dict):
-    orf_length_dict = {}
-
-    for key, value in orf_dict.items():
-        orf_length_dict[key] = (Find_The_Longest_ORF(value), Find_The_Longest_ORF(value)[0][1])
-
-    return orf_length_dict
+    return (longest_sequences_identifiers, longest_sequence_length)
 
 
+### Pre-conditions: takes a path to a Fasta file with multiple records...
+### Post-conditions: Returns a tuple consists of two elements the first is a list contains all identifiers with the shortest sequences,
+# and the second element is the length of the shortest sequence...
+def Find_Shortest_Sequences(file_path):
+    sequence_length_dict = Get_Lengths_Of_Sequences(file_path)
+    records = File_Parser(file_path)
 
-### Pre-conidtions: takes the length of the wanted repeat, the sequence, and optional a threshold that is the minmum
-# number of occurences each repeat has...
+    shortest_sequence_length = min(sequence_length_dict.values())
+    shortest_sequences_identifiers = []
+
+    for identifer, sequence in records.items():
+        if len(sequence) == shortest_sequence_length:
+            shortest_sequences_identifiers.append(identifer)
+
+    return (shortest_sequences_identifiers, shortest_sequence_length)
+
+### Pre-conidtions: takes a dictionary contains a pattern of specific length and its number of occurences...
+### Post-conditions: Returns a dictionary with removed patterns that has an occurence equals one...
+def Filter_Repeat_Counts(repeat_counts):
+    filtered_repeat_count = {}
+    for pattern, count in repeat_counts.items():
+        if count > 1:
+            filtered_repeat_count[pattern] = count
+
+    return filtered_repeat_count
+### Pre-conidtions: takes the length of the wanted repeat, the sequence...
 ### Post-conditions: returns a dictionary of all repeats and their number of occurences...
-def Find_Repeats(repeat_len, sequence, threshold=1):
+def Find_Repeats(repeat_len, sequence):
     repeat_counts = {}
-    for i in range(0, len(sequence) - (repeat_len - 1)):
+    for i in range(0, len(sequence) - repeat_len + 1):
         subsequence = sequence[i:i+repeat_len]
-        if sequence.count(subsequence) >= threshold:
-            repeat_counts[subsequence] = sequence.count(subsequence)
+        if repeat_counts.get(subsequence, None):
+            repeat_counts[subsequence] += 1
+        else:
+            repeat_counts[subsequence] = 1
+        
 
-    return repeat_counts
+    return Filter_Repeat_Counts(repeat_counts)
 
-
-def Concatenate_Repeat_Dicts(repeat_dicts):
-    repeats_concatenated = {}
-
-    for _, repeat_dict in repeat_dicts.items():
-        for repeat, count in repeat_dict.items():
-            if repeats_concatenated.get(repeat, None):
-                repeats_concatenated[repeat] += count
+### Pre-conditions: takes a path to a Fasta file with multiple records and the length of the repeat...
+### Post-conditions: Returns a dictionary that contains each repeat and its count in the whole file...
+def Find_All_Repeats(file_path, repeat_len):
+    records = File_Parser(file_path)
+    all_repeats_counts = {}
+    for _, sequenece in records.items():
+        repeats_counts = Find_Repeats(repeat_len, sequenece)
+        for pattern, count in repeats_counts.items():
+            if all_repeats_counts.get(pattern, None):
+                all_repeats_counts[pattern] += count
             else:
-                repeats_concatenated[repeat] = count 
+                all_repeats_counts[pattern] = count
     
-    sorted_repeats_concatenated = dict(sorted(repeats_concatenated.items(), key= lambda x:x[1]))
+    return all_repeats_counts
 
-    return sorted_repeats_concatenated
+### Pre-conditions: takes a path to a Fasta file with multiple records and the length of the repeat...
+### Post-conditions: Returns a dictionary that contains the most frequent repeats in the whole file...
+def Find_Most_Frequent_Repeat(file_path, repeat_len):
+    repeat_counts = Find_All_Repeats(file_path, repeat_len)
+
+    most_frequent_value = max(repeat_counts.values())
+    most_frequent_repeats = {}
+
+    for pattern, count in repeat_counts.items():
+        if count == most_frequent_value:
+            most_frequent_repeats[pattern] = count
+
+    return most_frequent_repeats
+
+
+### Pre-conditions: takes a path to a Fasta file with multiple records and the length of the repeat...
+### Post-conditions: Returns a dictionary that contains the less frequent repeats in the whole file...
+def Find_Less_Frequent_Repeat(file_path, repeat_len):
+    repeat_counts = Find_All_Repeats(file_path, repeat_len)
+
+    less_frequent_value = min(repeat_counts.values())
+    less_frequent_repeats = {}
+
+    for pattern, count in repeat_counts.items():
+        if count == less_frequent_value:
+            less_frequent_repeats[pattern] = count
+
+    return less_frequent_repeats
+
+
